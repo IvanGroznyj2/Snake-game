@@ -1,7 +1,9 @@
 var snake, apple, squareSize, score, speed,
     updateDelay, direction, new_direction,
     addNew, cursors, scoreTextValue, speedTextValue,
-    textStyle_Key, textStyle_Value;
+    textStyle_Key, textStyle_Value, s;
+
+
 
 var Game = {
 
@@ -13,6 +15,7 @@ var Game = {
 
     create: function() {
 
+        s = prompt('Введите скорость (1=10)');
         snake = [];
         apple = {};
         squareSize = 15;
@@ -65,10 +68,10 @@ var Game = {
         speedTextValue.text = '' + speed;
 
 
-        updateDelay = updateDelay + 0.5;
+        updateDelay++;
 
 
-        if (updateDelay % (1.5 - speed) == 0) {
+        if (updateDelay % (s - speed) == 0) {
 
             var firstCell = snake[snake.length - 1],
                 lastCell = snake.shift(),
